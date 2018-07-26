@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Paper-Reading," />
 
 
 
@@ -123,17 +123,21 @@
 
 
 
-<meta name="description" content="This is the first post of my blog.">
+<meta name="description" content="Key Ideas Use depthwise conv and 1X1 conv to replace conv layers.    What is depthwise conv + 1X1 conv?   Two hyperparameters to tune the size of MobileNet  Width Multiplier: Thinner Models. Reduce th">
+<meta name="keywords" content="Paper-Reading">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Test post">
-<meta property="og:url" content="http://xytian.me/2017/10/28/test/index.html">
+<meta property="og:title" content="MobileNets">
+<meta property="og:url" content="http://xytian.me/2018/05/01/Research-Notes/CNN-Architectures/Light-Weight CNN/MobileNets/index.html">
 <meta property="og:site_name" content="Xingye Tian">
-<meta property="og:description" content="This is the first post of my blog.">
+<meta property="og:description" content="Key Ideas Use depthwise conv and 1X1 conv to replace conv layers.    What is depthwise conv + 1X1 conv?   Two hyperparameters to tune the size of MobileNet  Width Multiplier: Thinner Models. Reduce th">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-25T09:36:45.134Z">
+<meta property="og:image" content="http://p3rz3gu1u.bkt.clouddn.com/2018-07-12-075211.png">
+<meta property="og:image" content="http://p3rz3gu1u.bkt.clouddn.com/2018-07-12-075347.png">
+<meta property="og:updated_time" content="2018-07-26T11:16:19.733Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Test post">
-<meta name="twitter:description" content="This is the first post of my blog.">
+<meta name="twitter:title" content="MobileNets">
+<meta name="twitter:description" content="Key Ideas Use depthwise conv and 1X1 conv to replace conv layers.    What is depthwise conv + 1X1 conv?   Two hyperparameters to tune the size of MobileNet  Width Multiplier: Thinner Models. Reduce th">
+<meta name="twitter:image" content="http://p3rz3gu1u.bkt.clouddn.com/2018-07-12-075211.png">
 
 
 
@@ -163,13 +167,13 @@
 
 
 
-  <link rel="canonical" href="http://xytian.me/2017/10/28/test/"/>
+  <link rel="canonical" href="http://xytian.me/2018/05/01/Research-Notes/CNN-Architectures/Light-Weight CNN/MobileNets/"/>
 
 
 
 
 
-  <title>Test post | Xingye Tian</title>
+  <title>MobileNets | Xingye Tian</title>
   
 
 
@@ -306,7 +310,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xytian.me/2017/10/28/test/">
+    <link itemprop="mainEntityOfPage" href="http://xytian.me/2018/05/01/Research-Notes/CNN-Architectures/Light-Weight CNN/MobileNets/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xingye Tian">
@@ -323,7 +327,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Test post</h1>
+          <h1 class="post-title" itemprop="name headline">MobileNets</h1>
         
 
         <div class="post-meta">
@@ -335,8 +339,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-28T08:39:58+08:00">
-                2017-10-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-01T06:43:30+08:00">
+                2018-05-01
               </time>
             
 
@@ -345,6 +349,39 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CNN-Architectures/" itemprop="url" rel="index">
+                    <span itemprop="name">CNN-Architectures</span>
+                  </a>
+                </span>
+
+                
+                
+                  >
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CNN-Architectures/Light-Weight-CNN/" itemprop="url" rel="index">
+                    <span itemprop="name">Light-Weight-CNN</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,7 +410,20 @@
       
 
       
-        <p>This is the first post of my blog.</p>
+        <h2 id="Key-Ideas"><a href="#Key-Ideas" class="headerlink" title="Key Ideas"></a>Key Ideas</h2><ul>
+<li><p>Use depthwise conv and 1X1 conv to replace conv layers. </p>
+<p><img src="http://p3rz3gu1u.bkt.clouddn.com/2018-07-12-075211.png" alt=""></p>
+</li>
+<li><p>What is depthwise conv + 1X1 conv?</p>
+<p><img src="http://p3rz3gu1u.bkt.clouddn.com/2018-07-12-075347.png" alt=""></p>
+</li>
+<li><p>Two hyperparameters to tune the size of MobileNet</p>
+<ul>
+<li>Width Multiplier: Thinner Models. Reduce the number of feature maps.</li>
+<li>Resolution Multiplier: Reduced Representa- tion. Reduce the resolution of input image.</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -389,6 +439,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Paper-Reading/" rel="tag"># Paper-Reading</a>
+          
+        </div>
+      
 
       
       
@@ -398,8 +454,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/28/Focal-Loss-RetinaNet/" rel="next" title="Focal Loss and RetinaNet">
-                <i class="fa fa-chevron-left"></i> Focal Loss and RetinaNet
+              <a href="/2018/05/01/Research-Notes/README/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -408,8 +464,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/28/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/01/Research-Notes/Object Detection and Segmentation/3. Object Detection/3. No Region Proposal/SSD/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -462,8 +518,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -482,14 +547,32 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -519,6 +602,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Key-Ideas"><span class="nav-number">1.</span> <span class="nav-text">Key Ideas</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
