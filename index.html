@@ -45,6 +45,50 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -81,7 +125,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Xingye Tian">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://xytian.me/index.html">
 <meta property="og:site_name" content="Xingye Tian">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -95,7 +139,7 @@
     root: '/',
     scheme: 'Muse',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -115,7 +159,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://xytian.me/"/>
 
 
 
@@ -140,7 +184,7 @@
     
   
 
-  <div class="container sidebar-position-left 
+  <div class="container sidebar-position-right 
   page-home">
     <div class="headband"></div>
 
@@ -157,7 +201,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">Machine Learning for Computer Vision.</p>
       
   </div>
 
@@ -193,6 +237,26 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
           </a>
         </li>
       
@@ -239,12 +303,185 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://xytian.me/2018/05/01/Focal-Loss-RetinaNet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xingye Tian">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://p3rz3gu1u.bkt.clouddn.com/2018-07-26-ME.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xingye Tian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/01/Focal-Loss-RetinaNet/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-01T06:43:30+08:00">
+                2018-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://arxiv.org/abs/1708.02002" target="_blank" rel="noopener">[1708.02002] Focal Loss for Dense Object Detection</a></p>
+<h2 id="Key-Ideas-of-this-paper"><a href="#Key-Ideas-of-this-paper" class="headerlink" title="Key Ideas of this paper"></a>Key Ideas of this paper</h2><ul>
+<li>The author think that one-stage object detection methods are less accurate than two-stage methods because of extrame foreground-background class imblance.</li>
+<li>They propose to address this class imbalance by reshaping the standard cross entropy loss such that it down-weights the loss assigned to well-classified examples and focus more on hard examples. </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Focal-Loss</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><p float="left"> <img src="http://p3rz3gu1u.bkt.clouddn.com/2018-06-30-Focal-Loss.png" width="400">  </p></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>A one-stage object detection method called RetinaNet is proposed based on the idea of Focal Loss. Feature Pyramid Network(FPN) is used as the backbone net and two seperate Fully Conventional Networks(FCN) are used  as subnets to predict the class and localization of objects. Focal Loss is applied to the class prediction subnet and smooth L1 loss to the localization subnet.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">RetinaNet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><p float="left"> <img src="http://p3rz3gu1u.bkt.clouddn.com/2018-06-30-RetinaNet.png" width="800">  </p></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Results show that when trained with the Focal Loss, RetinaNet is able to match the speed of previous one-stage detectors while surpassing the accuracy of all existing state-of-the-art two-stage detectors. </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Performance of RetinaNet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><p float="left"> <img src="http://p3rz3gu1u.bkt.clouddn.com/2018-06-30-RetinaNet-Performance.png" width="400">  </p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Implementation-in-Pytorch"><a href="#Implementation-in-Pytorch" class="headerlink" title="Implementation in Pytorch"></a>Implementation in Pytorch</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">one_hot</span><span class="params">(index, classes)</span>:</span></span><br><span class="line">    size = index.size() + (classes,)</span><br><span class="line">    view = index.size() + (<span class="number">1</span>,)</span><br><span class="line">    mask = torch.Tensor(*size).fill_(<span class="number">0</span>)</span><br><span class="line">    index = index.view(*view)</span><br><span class="line">    ones = <span class="number">1.</span></span><br><span class="line">    <span class="keyword">if</span> isinstance(index, Variable):</span><br><span class="line">        ones = Variable(torch.Tensor(index.size()).fill_(<span class="number">1</span>))</span><br><span class="line">        mask = Variable(mask, volatile=index.volatile)</span><br><span class="line">    <span class="keyword">return</span> mask.scatter_(<span class="number">1</span>, index, ones)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FocalLoss</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, gamma=<span class="number">0</span>, eps=<span class="number">1e-7</span>)</span>:</span></span><br><span class="line">        super(FocalLoss, self).__init__()</span><br><span class="line">        self.gamma = gamma</span><br><span class="line">        self.eps = eps</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, input, target)</span>:</span></span><br><span class="line">        y = one_hot(target, input.size(<span class="number">-1</span>))</span><br><span class="line">        logit = F.softmax(input)</span><br><span class="line">        logit = logit.clamp(self.eps, <span class="number">1.</span> - self.eps)</span><br><span class="line">        loss = <span class="number">-1</span> * y * torch.log(logit) <span class="comment"># cross entropy</span></span><br><span class="line">        loss = loss * (<span class="number">1</span> - logit) ** self.gamma <span class="comment"># focal loss</span></span><br><span class="line">        <span class="keyword">return</span> loss.sum()</span><br></pre></td></tr></table></figure>
+<h2 id="Solutions-to-Class-Imbalance-tasks-Comments"><a href="#Solutions-to-Class-Imbalance-tasks-Comments" class="headerlink" title="Solutions to Class-Imbalance tasks (Comments)"></a>Solutions to Class-Imbalance tasks (Comments)</h2><ul>
+<li>Resampling and re-design loss function are two common solutions to class-imblance tasks.</li>
+<li>Two-stage detection methods like Faster R-CNN applied resampling method. In RPN and Fast R-CNN part of Faster R-CNN, the foreground and background samples are kept 128:128 and 32:96.</li>
+<li>One stage methods like RetinaNet use all anchors to train the model, they can not select balanced samples. So try to improve the loss function seems to be the only choice.</li>
+</ul>
+<p>​    </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xytian.me/2017/10/28/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingye Tian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p3rz3gu1u.bkt.clouddn.com/2018-07-26-ME.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -367,12 +604,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/test/">
+    <link itemprop="mainEntityOfPage" href="http://xytian.me/2017/10/28/test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xingye Tian">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://p3rz3gu1u.bkt.clouddn.com/2018-07-26-ME.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -509,6 +746,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="http://p3rz3gu1u.bkt.clouddn.com/2018-07-26-ME.jpeg"
+                alt="Xingye Tian" />
+            
               <p class="site-author-name" itemprop="name">Xingye Tian</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
@@ -520,7 +761,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -534,6 +775,16 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/txytju" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+            </div>
           
 
           
