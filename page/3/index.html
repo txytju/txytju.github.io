@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xytian.me/2018/05/01/Research-Notes/6. OCR/Text-Detection/CTPN/">
+    <link itemprop="mainEntityOfPage" href="http://xytian.me/2018/05/01/Research-Notes/1. Neural-Networks/Group-Normalization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xingye Tian">
@@ -325,7 +325,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/01/Research-Notes/6. OCR/Text-Detection/CTPN/" itemprop="url">CTPN</a></h1>
+                <a class="post-title-link" href="/2018/05/01/Research-Notes/1. Neural-Networks/Group-Normalization/" itemprop="url">Group Normalization</a></h1>
         
 
         <div class="post-meta">
@@ -355,7 +355,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-07-28T16:41:07+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2018-07-28T16:32:29+08:00">
                 2018-07-28
               </time>
             
@@ -374,19 +374,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OCR/" itemprop="url" rel="index">
-                    <span itemprop="name">OCR</span>
-                  </a>
-                </span>
-
-                
-                
-                  >
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OCR/Text-Detection/" itemprop="url" rel="index">
-                    <span itemprop="name">Text Detection</span>
+                  <a href="/categories/Neural-Networks/" itemprop="url" rel="index">
+                    <span itemprop="name">Neural Networks</span>
                   </a>
                 </span>
 
@@ -424,224 +413,8 @@
       
         
           
-            <h2 id="Structure-of-the-model"><a href="#Structure-of-the-model" class="headerlink" title="Structure of the model"></a>Structure of the model</h2><p><img src="http://p3rz3gu1u.bkt.clouddn.com/2018-07-10-053621.png" alt=""></p>
-<p>Steps of the foward pass:</p>
-<ol>
-<li>From the raw image, we first get a feature map with FCN, which means that the size of feature map is not fixed.</li>
-<li>A dense sliding window in the feature map, on each position, we use a 3X3 window to get 3X3XC vector. So on each row, get W 3X3XC vectors.</li>
-<li>Use a Bi-LSTM to use context information, and convert 3X3XC vector to a 256 vector (128 each direction). </li>
-<li>For each position, using a FC layer, predict 2k coordinates, 2k scores and k side-refinements.</li>
-</ol>
-<h2 id="Key-Ideas-of-this-paper"><a href="#Key-Ideas-of-this-paper" class="headerlink" title="Key Ideas of this paper"></a>Key Ideas of this paper</h2><ul>
-<li>This paper is some what related to Faster R-CNN, especially the RPN part.<ul>
-<li>Because there are only one target class to localization, so RPN of Faster R-CNN seems enough for plot bounding boxes and Fast R-CNN part is useless.</li>
-<li>But the problem of RPN is the localization is not that accurate. As you can see in Faster R-CNN, a futher localization part is needed in Fast R-CNN to get more accurate localization.</li>
-<li>So, if CTPN wants to build a text line localization based on RPN, the original RPN is not enough and some tricks are needed, as shown below.</li>
-</ul>
-</li>
-<li>Based on the characteristics of text lines, some tricks are as follows:<ul>
-<li>Text line can be long or short and the length of text line can vary a lot. So narrow anchors are applied to detect some text, rather than the whole text line!</li>
-<li>A Bi-LSTM is applied, ensuring the context information in deciding whether an anchor is text or not.</li>
-</ul>
-</li>
-<li>Why this method is better in localization?<ul>
-<li>Compared to the RPN or Faster R-CNN system, our fine-scale detection provides more detailed supervised information that naturally leads to a more accurate detection. </li>
-</ul>
-</li>
-</ul>
-<h2 id="Some-Information-about-OCR"><a href="#Some-Information-about-OCR" class="headerlink" title="Some Information about OCR"></a>Some Information about OCR</h2><ul>
-<li><p>Poor performance of RPN on text</p>
-<ul>
-<li>Text detection is defined in word or text line level, so that it may be easy to make an incorrect detection by defining it as a single object, e.g., detecting part of a word. Therefore, directly predicting the location of a text line or word may be difficult or unreliable, making it hard to get a satisfied accuracy, as shown in the image below.</li>
-</ul>
-<p><img src="http://p3rz3gu1u.bkt.clouddn.com/2018-07-10-034519.png" alt=""></p>
-</li>
-</ul>
-<h2 id="Some-inspiring-details-in-this-paper"><a href="#Some-inspiring-details-in-this-paper" class="headerlink" title="Some inspiring details in this paper"></a>Some inspiring details in this paper</h2><ol>
-<li><p>The localization predictions share the same format as Faster R-CNN, as shown below.</p>
-<p><img src="http://p3rz3gu1u.bkt.clouddn.com/2018-07-10-035414.png" alt=""></p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xytian.me/2018/05/01/Research-Notes/2. CNN-Architectures/Light-Weight CNN/MobileNets/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xingye Tian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p3rz3gu1u.bkt.clouddn.com/2018-07-26-ME.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xingye Tian">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/01/Research-Notes/2. CNN-Architectures/Light-Weight CNN/MobileNets/" itemprop="url">MobileNets</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-               
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-01T06:43:30+08:00">
-                2018-05-01
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-07-26T19:16:19+08:00">
-                2018-07-26
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CNN-Architectures/" itemprop="url" rel="index">
-                    <span itemprop="name">CNN-Architectures</span>
-                  </a>
-                </span>
-
-                
-                
-                  >
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CNN-Architectures/Light-Weight-CNN/" itemprop="url" rel="index">
-                    <span itemprop="name">Light-Weight-CNN</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Key-Ideas"><a href="#Key-Ideas" class="headerlink" title="Key Ideas"></a>Key Ideas</h2><ul>
-<li><p>Use depthwise conv and 1X1 conv to replace conv layers. </p>
-<p><img src="http://p3rz3gu1u.bkt.clouddn.com/2018-07-12-075211.png" alt=""></p>
-</li>
-<li><p>What is depthwise conv + 1X1 conv?</p>
-<p><img src="http://p3rz3gu1u.bkt.clouddn.com/2018-07-12-075347.png" alt=""></p>
-</li>
-<li><p>Two hyperparameters to tune the size of MobileNet</p>
-<ul>
-<li>Width Multiplier: Thinner Models. Reduce the number of feature maps.</li>
-<li>Resolution Multiplier: Reduced Representa- tion. Reduce the resolution of input image.</li>
-</ul>
-</li>
-</ul>
+            <p><a href="https://arxiv.org/abs/1803.08494" target="_blank" rel="noopener">Group Normalization</a></p>
+<p>[Detectron/projects/GN at master · facebookresearch/Detectron</p>
 
           
         
@@ -681,7 +454,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -742,7 +515,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

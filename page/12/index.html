@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xytian.me/2018/05/01/Research-Notes/3. Object-Detection-and-Segmentation/3. Object Detection/Summary-Object-Detection/">
+    <link itemprop="mainEntityOfPage" href="http://xytian.me/2018/05/01/Research-Notes/3. Object-Detection-and-Segmentation/1. Semantic Segmentation/2017-TPAMI-A Review on Deep Learning Techniques Applied to Semantic Segmentation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xingye Tian">
@@ -325,7 +325,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/01/Research-Notes/3. Object-Detection-and-Segmentation/3. Object Detection/Summary-Object-Detection/" itemprop="url">Object Detection Summary</a></h1>
+                <a class="post-title-link" href="/2018/05/01/Research-Notes/3. Object-Detection-and-Segmentation/1. Semantic Segmentation/2017-TPAMI-A Review on Deep Learning Techniques Applied to Semantic Segmentation/" itemprop="url">2017-TPAMI-A Review on Deep Learning Techniques Applied to Semantic Segmentation</a></h1>
         
 
         <div class="post-meta">
@@ -355,7 +355,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-07-28T16:47:46+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2018-07-28T10:48:17+08:00">
                 2018-07-28
               </time>
             
@@ -385,8 +385,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Object-Detection-and-Segmentation/Object-Detection/" itemprop="url" rel="index">
-                    <span itemprop="name">Object Detection</span>
+                  <a href="/categories/Object-Detection-and-Segmentation/Semantic-Segmentation/" itemprop="url" rel="index">
+                    <span itemprop="name">Semantic Segmentation</span>
                   </a>
                 </span>
 
@@ -424,223 +424,55 @@
       
         
           
-            <p><img src="http://p3rz3gu1u.bkt.clouddn.com/2018-06-30-085442.png" alt=""></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>2012</th>
-<th>2013</th>
-<th>2014</th>
-<th>2015</th>
-<th>2016</th>
-<th>2017</th>
-<th>2018</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Two-Stage</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>One-Dtage</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Backbone</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>Ref</p>
+            <p>A basic summary of research approach about semantic segmentation in recent years.</p>
+<h2 id="Main-parts-of-this-summary-paper-are"><a href="#Main-parts-of-this-summary-paper-are" class="headerlink" title="Main parts of this summary paper are :"></a>Main parts of this summary paper are :</h2><ul>
+<li>Datasets that are used in different segmentation tasks.</li>
+<li>Metrics that are used to evaluate the performance of different models.</li>
+<li>Methods that show promising results in segmentation tasks.</li>
+<li>Some promising future works.</li>
+</ul>
+<h2 id="Some-key-ideas"><a href="#Some-key-ideas" class="headerlink" title="Some key ideas"></a>Some key ideas</h2><ul>
+<li><p>Looking at the big picture, semantic segmentation is one of the high-level task that paves the way towards complete scene understanding. </p>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/36088972" target="_blank" rel="noopener">【重磅】基于深度学习的目标检测算法综述</a></li>
+<li><p>Comments : From image classification, object detection, to semantic segmentation and instance segmentation, the complexity of tasks are increasing, however, the information we can get from the 4 tasks are also increasing.</p>
+<p><img src="http://p3rz3gu1u.bkt.clouddn.com/2018-07-28-024113.png" alt=""></p>
+</li>
+</ul>
+</li>
+<li><p>The main content of this paper is inspiring. It shows what to learn when you try to learn about a branch of machine learning especially computer vision. The 3 important aspects are methods(algorithms), datasets and metrics. </p>
+<ul>
+<li>You  can train the model on some dataset and finally evaluate the performance with some metric. With these 3 parts, you can keep testing the performance and improving your methods until you finally find the best method suitble for your task.</li>
+</ul>
+</li>
+<li><p>Transfor learning features even from distant tasks can be better than using random initialization, so maybe use transfor learning as possible as you can.</p>
+<ul>
+<li>Labling in semantic segmentation is expensive, so transfor learning is very important in semantic segmentation tasks.</li>
+<li>Because most of pre-trained models are pre-trained on some spefic models like VGG or ResNet, so use them if possible, rather than train your own model from scratch unless you are trying to creat your own model and write a paper.</li>
+<li>Although fine-tuning is a terminology that is often used together with transfor learning, it’s not part of transfor learning. The relationship between the two is quite clear in cs231n : they are totally different terminology, but fine-tuning is always needed when applying transfor learning. Using small learning rate and choosing which layers to freeze are 2 very important key ideas when applying fine-tuning.</li>
+</ul>
+</li>
+<li><p>PASCAL VOC and COCO dataset are often used in semantic segmentation tasks.</p>
+</li>
+<li><p>Evaluation Metrics</p>
+<ul>
+<li><p>Execution time (satisfying metric)</p>
+</li>
+<li><p>Memory footprint (satisfying metric)</p>
+</li>
+<li><p>Accuracy (optimal metric, check the paper for details)</p>
+<ul>
+<li>pixel accuracy (PA)</li>
+<li>mean pixel accuracy (MPA)</li>
+<li>mean intersection over union (MIoU) : most standrad metric in semantic segmentation.</li>
+<li>frequency weighted IoU (FWIoU)</li>
+</ul>
+</li>
+<li><p>Methods of semantic segmentation will be introduced when reading that spefic paper.</p>
+</li>
+</ul>
+</li>
 </ul>
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xytian.me/2018/01/19/Research-Notes/1. Neural-Networks/Summary-Neural-Networks/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xingye Tian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p3rz3gu1u.bkt.clouddn.com/2018-07-26-ME.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xingye Tian">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/19/Research-Notes/1. Neural-Networks/Summary-Neural-Networks/" itemprop="url">Neural Network Summary</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-               
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-19T09:27:27+08:00">
-                2018-01-19
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-07-28T16:37:11+08:00">
-                2018-07-28
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Neural-Networks/" itemprop="url" rel="index">
-                    <span itemprop="name">Neural Networks</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Topics-About-Neural-Network"><a href="#Topics-About-Neural-Network" class="headerlink" title="Topics About Neural Network"></a>Topics About Neural Network</h1><p>Covers some topics about neural network. Including weights initialization and regularzation and so on.</p>
-<h2 id="WeightInitialization"><a href="#WeightInitialization" class="headerlink" title="WeightInitialization"></a><a href="https://github.com/txytju/TopicsInNeuralNetwork/tree/master/WeightInitialization" target="_blank" rel="noopener">WeightInitialization</a></h2>
           
         
       
@@ -679,7 +511,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -740,7 +572,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
