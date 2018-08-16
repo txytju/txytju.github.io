@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xytian.me/2018/05/01/Research-Notes/3. Object-Detection-and-Segmentation/1. Semantic Segmentation/2015-CVPR-Fully-Convolutional-Networks-for-Semantic-Segmentation/">
+    <link itemprop="mainEntityOfPage" href="http://xytian.me/2018/05/01/Research-Notes/2. CNN-Architectures/Light-Weight CNN/MobileNets/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xingye Tian">
@@ -325,7 +325,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/01/Research-Notes/3. Object-Detection-and-Segmentation/1. Semantic Segmentation/2015-CVPR-Fully-Convolutional-Networks-for-Semantic-Segmentation/" itemprop="url">2015-CVPR-Fully-Convolutional-Networks-for-Semantic-Segmentation</a></h1>
+                <a class="post-title-link" href="/2018/05/01/Research-Notes/2. CNN-Architectures/Light-Weight CNN/MobileNets/" itemprop="url">MobileNets</a></h1>
         
 
         <div class="post-meta">
@@ -355,8 +355,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-07-28T10:50:49+08:00">
-                2018-07-28
+              <time title="Post modified" itemprop="dateModified" datetime="2018-07-26T19:16:19+08:00">
+                2018-07-26
               </time>
             
           </span>
@@ -374,8 +374,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Object-Detection-and-Segmentation/" itemprop="url" rel="index">
-                    <span itemprop="name">Object Detection and Segmentation</span>
+                  <a href="/categories/CNN-Architectures/" itemprop="url" rel="index">
+                    <span itemprop="name">CNN-Architectures</span>
                   </a>
                 </span>
 
@@ -385,8 +385,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Object-Detection-and-Segmentation/Semantic-Segmentation/" itemprop="url" rel="index">
-                    <span itemprop="name">Semantic Segmentation</span>
+                  <a href="/categories/CNN-Architectures/Light-Weight-CNN/" itemprop="url" rel="index">
+                    <span itemprop="name">Light-Weight-CNN</span>
                   </a>
                 </span>
 
@@ -424,7 +424,20 @@
       
         
           
-            <p>​    </p>
+            <h2 id="Key-Ideas"><a href="#Key-Ideas" class="headerlink" title="Key Ideas"></a>Key Ideas</h2><ul>
+<li><p>Use depthwise conv and 1X1 conv to replace conv layers. </p>
+<p><img src="http://p3rz3gu1u.bkt.clouddn.com/2018-07-12-075211.png" alt=""></p>
+</li>
+<li><p>What is depthwise conv + 1X1 conv?</p>
+<p><img src="http://p3rz3gu1u.bkt.clouddn.com/2018-07-12-075347.png" alt=""></p>
+</li>
+<li><p>Two hyperparameters to tune the size of MobileNet</p>
+<ul>
+<li>Width Multiplier: Thinner Models. Reduce the number of feature maps.</li>
+<li>Resolution Multiplier: Reduced Representa- tion. Reduce the resolution of input image.</li>
+</ul>
+</li>
+</ul>
 
           
         
